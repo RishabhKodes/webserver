@@ -15,7 +15,7 @@ const mimeTypes = {
 http.createServer(function(req, res){
 	var uri = url.parse(req.url).pathname;
 	var fileName = path.join(process.cwd(), unescape(uri));
-	console.log('Loading '+ uri);
+	console.log('Loading'+ uri);
 	var stats;
 
 	try{
@@ -37,7 +37,7 @@ http.createServer(function(req, res){
 		fileStream.pipe(res);
 	} else if(stats.isDirectory()) {
 		res.writeHead(302, {
-			'Location': 'index.html'//if nothing is mentioned go to index.html
+			'Location': 'index.html'//if no route is mentioned go to index.html
 		});
 		res.end();
 	} else {//if directory or file both not present
